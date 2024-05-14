@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, Button, Grid, Typography, Box } from "@mui/material";
 import { ICourse } from "../../types/course.types";
 import { courseService } from "../../services/course.service";
+import { config } from "../../config/config";
 
 interface CourseFormProps {
   //   onSubmit: (course: Course) => void;
@@ -15,6 +16,10 @@ export const CourseForm: React.FC<CourseFormProps> = () => {
     discountedPrice: 0,
   });
 
+  console.log(
+    "import.meta.env.VITE_APPWRITE_ENDPOINT =>",
+    config.appwriteEndPoint
+  );
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

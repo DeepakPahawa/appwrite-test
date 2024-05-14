@@ -1,13 +1,13 @@
+import { config } from "../config/config";
 import { ICourse } from "../types/course.types";
 import { ID, db } from "./appwrite.config";
-import { courseCollectionId, dbId } from "./constants";
 
 export const addDoc = async (course: ICourse) => {
   console.log("AddDoc =>", course);
   try {
     const result = await db.createDocument(
-      dbId,
-      courseCollectionId,
+      config.appwriteDatabaseId,
+      config.appwriteCourseCollectionId,
       ID.unique(),
       course
     );
